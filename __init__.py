@@ -1,7 +1,7 @@
 from os import path
 
 from flask import Flask
-from flask_login import LoginManager
+
 from flask_sqlalchemy import SQLAlchemy
 
 from src.import_db.create_db import create_engine
@@ -10,10 +10,12 @@ db = SQLAlchemy()
 DB_NAME = "AppData"
 
 def create_app():
+
     app = Flask(__name__)
 
     create_engine(app)  # vytvorenie db
 
+    from flask_login import LoginManager
     from src.after_login.after_login_routes import views
     from src.after_login.lectures import lectures
     from src.after_login.tests import tests
