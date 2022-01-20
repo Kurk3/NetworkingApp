@@ -4,9 +4,11 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 DB_NAME = "AppData"
+SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 def create_engine(app):
-   app.config['SECRET_KEY'] = 'abcdefghfijklmnoprsqxyz'  # ked stranka ide do produkcie (heslo)
+   app.config['SECRET_KEY'] = 'abcdefghfijklmnoprsqxyz'# ked stranka ide do produkcie (heslo)
+   app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = 'False'
    app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql:///{DB_NAME}'  # ulozeny nazov databazy
    db.init_app(app)
 
