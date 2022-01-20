@@ -5,6 +5,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
 from src.import_db.create_db import create_engine
+from flask_login import LoginManager
 
 db = SQLAlchemy()
 DB_NAME = "AppData"
@@ -13,7 +14,7 @@ def create_app():
 
     app = Flask(__name__)
 
-    create_engine(app)  # vytvorenie db
+    create_engine(app)
 
     from flask_login import LoginManager
     from src.after_login.after_login_routes import views
@@ -27,7 +28,6 @@ def create_app():
     app.register_blueprint(tests, url_prefix='/')
 
     from src.import_db.tables import User
-    from src.import_db.tables import Contents
 
     create_tables(app)
 
