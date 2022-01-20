@@ -10,10 +10,12 @@ from flask_login import LoginManager
 db = SQLAlchemy()
 DB_NAME = "AppData"
 
+
 def create_app():
 
     app = Flask(__name__)
     create_engine(app)
+
 
     from flask_login import LoginManager
     from src.after_login.after_login_routes import views
