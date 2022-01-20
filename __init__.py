@@ -13,7 +13,6 @@ DB_NAME = "AppData"
 def create_app():
 
     app = Flask(__name__)
-
     create_engine(app)
 
     from flask_login import LoginManager
