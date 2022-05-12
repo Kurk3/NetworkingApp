@@ -23,13 +23,9 @@ def login():
                 login_user(user, remember=True)
                 print('uspesne si sa prihlasil')
                 return redirect(url_for('views.new_base'))
-
             else:
-
                 print('zle heslo skus znovu')
-
         else:
-
             print('tento email neexistue')
 
     return render_template("before_login/login_4.html", user=current_user)
